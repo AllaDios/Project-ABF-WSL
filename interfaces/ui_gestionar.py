@@ -43,6 +43,7 @@ class Ui_MainWindow(object):
         self.pushButton_7.setObjectName("pushButton_7")
         self.comboBox = QtWidgets.QComboBox(self.widget)
         self.comboBox.setGeometry(QtCore.QRect(300, 50, 141, 31))
+        self.comboBox.setStyleSheet("background-color: #9ddba6;          /* Color de fondo verde */")
         self.comboBox.setObjectName("comboBox")
         self.label_2 = QtWidgets.QLabel(self.widget)
         self.label_2.setGeometry(QtCore.QRect(130, 50, 161, 31))

@@ -17,7 +17,12 @@ class MenuWindow(QMainWindow, Ui_MainWindow):
 
     def abrir_ventana_gestion(self):
         from .gestionar import GestionWindow  # Importamos la ventana de gestión#+
+        # Capturamos la posición de la ventana actual antes de cerrarla
+        pos_x = self.geometry().x()
+        pos_y = self.geometry().y()
         self.ventana_gestion = GestionWindow()
+        # Establecemos la misma posición para la nueva ventana
+        self.ventana_gestion.move(pos_x, pos_y)
         self.ventana_gestion.show()
         self.close()  # Cerramos la ventana de menú
         
