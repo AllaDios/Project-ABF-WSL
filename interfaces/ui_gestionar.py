@@ -57,128 +57,24 @@ class Ui_MainWindow(object):
         font.setPointSize(24)
         font.setItalic(True)
         self.pushButton_8.setFont(font)
+        self.pushButton_8.setStyleSheet("background-color: #9ddba6;          /* Color de fondo verde */")
         self.pushButton_8.setObjectName("pushButton_8")
         self.scrollArea = QtWidgets.QScrollArea(self.widget)
-        self.scrollArea.setGeometry(QtCore.QRect(50, 230, 950, 410))
-        self.scrollArea.setMinimumSize(QtCore.QSize(950, 410))
-        self.scrollArea.setMaximumSize(QtCore.QSize(950, 410))
+        self.scrollArea.setGeometry(QtCore.QRect(50, 230, 951, 411))
+        self.scrollArea.setStyleSheet("background-color: #dcf4de;          /* Color de fondo verde */")
         self.scrollArea.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
+        self.scrollArea.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 934, 408))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 935, 409))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.verticalLayoutWidget = QtWidgets.QWidget(self.scrollAreaWidgetContents)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(20, 0, 911, 411))
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(9, 9, 921, 391))
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
-        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
-        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.pushButton_3 = QtWidgets.QPushButton(self.verticalLayoutWidget)
-        self.pushButton_3.setMinimumSize(QtCore.QSize(0, 32))
-        font = QtGui.QFont()
-        font.setPointSize(18)
-        font.setItalic(True)
-        self.pushButton_3.setFont(font)
-        self.pushButton_3.setStyleSheet("QPushButton {\n"
-"    background-color: #75bf7b; /* Color de fondo */\n"
-"    color: white; /* Color del texto */\n"
-"    border: 3px solid #59ad4b; /* Color del borde */\n"
-"    border-radius: 7px; /* Bordes redondeados */\n"
-"}\n"
-"QPushButton:pressed {\n"
-"    background-color: rgba(52, 152, 219, 0.7); /* Color translúcido al presionar */\n"
-"}")
-        self.pushButton_3.setObjectName("pushButton_3")
-        self.verticalLayout_2.addWidget(self.pushButton_3)
-        self.pushButton_6 = QtWidgets.QPushButton(self.verticalLayoutWidget)
-        self.pushButton_6.setMinimumSize(QtCore.QSize(0, 32))
-        font = QtGui.QFont()
-        font.setPointSize(18)
-        font.setItalic(True)
-        self.pushButton_6.setFont(font)
-        self.pushButton_6.setStyleSheet("QPushButton {\n"
-"    background-color: #75bf7b; /* Color de fondo */\n"
-"    color: white; /* Color del texto */\n"
-"    border: 3px solid #59ad4b; /* Color del borde */\n"
-"    border-radius: 7px; /* Bordes redondeados */\n"
-"}\n"
-"QPushButton:pressed {\n"
-"    background-color: rgba(52, 152, 219, 0.7); /* Color translúcido al presionar */\n"
-"}")
-        self.pushButton_6.setObjectName("pushButton_6")
-        self.verticalLayout_2.addWidget(self.pushButton_6)
-        self.pushButton_5 = QtWidgets.QPushButton(self.verticalLayoutWidget)
-        self.pushButton_5.setMinimumSize(QtCore.QSize(0, 32))
-        font = QtGui.QFont()
-        font.setPointSize(18)
-        font.setItalic(True)
-        self.pushButton_5.setFont(font)
-        self.pushButton_5.setStyleSheet("QPushButton {\n"
-"    background-color: #75bf7b; /* Color de fondo */\n"
-"    color: white; /* Color del texto */\n"
-"    border: 3px solid #59ad4b; /* Color del borde */\n"
-"    border-radius: 7px; /* Bordes redondeados */\n"
-"}\n"
-"QPushButton:pressed {\n"
-"    background-color: rgba(52, 152, 219, 0.7); /* Color translúcido al presionar */\n"
-"}")
-        self.pushButton_5.setText("")
-        self.pushButton_5.setObjectName("pushButton_5")
-        self.verticalLayout_2.addWidget(self.pushButton_5)
-        self.pushButton_4 = QtWidgets.QPushButton(self.verticalLayoutWidget)
-        self.pushButton_4.setMinimumSize(QtCore.QSize(0, 32))
-        font = QtGui.QFont()
-        font.setPointSize(18)
-        font.setItalic(True)
-        self.pushButton_4.setFont(font)
-        self.pushButton_4.setStyleSheet("QPushButton {\n"
-"    background-color: #75bf7b; /* Color de fondo */\n"
-"    color: white; /* Color del texto */\n"
-"    border: 3px solid #59ad4b; /* Color del borde */\n"
-"    border-radius: 7px; /* Bordes redondeados */\n"
-"}\n"
-"QPushButton:pressed {\n"
-"    background-color: rgba(52, 152, 219, 0.7); /* Color translúcido al presionar */\n"
-"}")
-        self.pushButton_4.setText("")
-        self.pushButton_4.setObjectName("pushButton_4")
-        self.verticalLayout_2.addWidget(self.pushButton_4)
-        self.pushButton_2 = QtWidgets.QPushButton(self.verticalLayoutWidget)
-        self.pushButton_2.setMinimumSize(QtCore.QSize(0, 32))
-        font = QtGui.QFont()
-        font.setPointSize(18)
-        font.setItalic(True)
-        self.pushButton_2.setFont(font)
-        self.pushButton_2.setStyleSheet("QPushButton {\n"
-"    background-color: #75bf7b; /* Color de fondo */\n"
-"    color: white; /* Color del texto */\n"
-"    border: 3px solid #59ad4b; /* Color del borde */\n"
-"    border-radius: 7px; /* Bordes redondeados */\n"
-"}\n"
-"QPushButton:pressed {\n"
-"    background-color: rgba(52, 152, 219, 0.7); /* Color translúcido al presionar */\n"
-"}")
-        self.pushButton_2.setText("")
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.verticalLayout_2.addWidget(self.pushButton_2)
-        self.pushButton = QtWidgets.QPushButton(self.verticalLayoutWidget)
-        self.pushButton.setMinimumSize(QtCore.QSize(0, 32))
-        font = QtGui.QFont()
-        font.setPointSize(18)
-        font.setItalic(True)
-        self.pushButton.setFont(font)
-        self.pushButton.setStyleSheet("QPushButton {\n"
-"    background-color: #75bf7b; /* Color de fondo */\n"
-"    color: white; /* Color del texto */\n"
-"    border: 3px solid #59ad4b; /* Color del borde */\n"
-"    border-radius: 7px; /* Bordes redondeados */\n"
-"}\n"
-"QPushButton:pressed {\n"
-"    background-color: rgba(52, 152, 219, 0.7); /* Color translúcido al presionar */\n"
-"}")
-        self.pushButton.setObjectName("pushButton")
-        self.verticalLayout_2.addWidget(self.pushButton)
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setObjectName("verticalLayout")
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.gridLayout.addWidget(self.widget, 0, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
@@ -199,6 +95,3 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label_2.setText(_translate("MainWindow", "Ordenar por"))
         self.pushButton_8.setText(_translate("MainWindow", "Actualizar"))
-        self.pushButton_3.setText(_translate("MainWindow", "Amapola"))
-        self.pushButton_6.setText(_translate("MainWindow", "Rosa"))
-        self.pushButton.setText(_translate("MainWindow", "xxxxx"))

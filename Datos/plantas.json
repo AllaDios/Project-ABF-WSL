@@ -1,0 +1,34 @@
+[
+    {
+      "planta": "Cactus",
+      "humedad": 25
+    },
+    {
+      "planta": "Sombra de la noche",
+      "humedad": 60
+    },
+    {
+      "planta": "Amapola",
+      "humedad": 60
+    },
+    {
+      "planta": "Rosa",
+      "humedad": 60
+    },
+    {
+      "planta": "Jazmín",
+      "humedad": 60
+    },
+    {
+      "planta": "Margarita",
+      "humedad": 60
+    },
+    {
+      "planta": "Girasol",
+      "humedad": 60
+    },
+    {
+      "planta": "Lavanda",
+      "humedad": 60
+    }
+  ]
