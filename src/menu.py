@@ -5,7 +5,7 @@ from PyQt5 import QtCore
 
 from interfaces.ui_menu import Ui_MainWindow
 
-class MainWindow(QMainWindow, Ui_MainWindow):
+class MenuWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
@@ -16,7 +16,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.pushButton_3.clicked.connect(self.abrir_ventana_gestion)
 
     def abrir_ventana_gestion(self):
-        from .gestionar import MainWindow as GestionWindow  # Importamos la ventana de gestión#+
+        from .gestionar import GestionWindow  # Importamos la ventana de gestión#+
         self.ventana_gestion = GestionWindow()
         self.ventana_gestion.show()
         self.close()  # Cerramos la ventana de menú

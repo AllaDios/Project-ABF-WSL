@@ -7,7 +7,7 @@ import json  # Importar el módulo para manejar JSON
 
 from interfaces.ui_gestionar import Ui_MainWindow
 
-class MainWindow(QMainWindow):
+class GestionWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.ui = Ui_MainWindow()
@@ -39,7 +39,11 @@ class MainWindow(QMainWindow):
         # Conectar el botón para ordenar los botones
         self.ui.pushButton_8.clicked.connect(self.ordenar_botones)
         
-    
+    def abrir_ventana_menu(self):
+        from .menu import MenuWindow  # Importamos la ventana de gestión#+
+        self.ventana_menu = MenuWindow()
+        self.ventana_menu.show()
+        self.close()  # Cerramos la ventana de menú
 
     def cargar_datos_json(self, archivo):
         """

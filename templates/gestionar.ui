@@ -223,6 +223,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_7</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>abrir_ventana_menu()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>54</x>
+     <y>116</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>278</x>
+     <y>25</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>ordenar_botones()</slot>
