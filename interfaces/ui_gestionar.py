@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'Menu.ui'
+# Form implementation generated from reading ui file './templates/gestionar.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.11
 #
@@ -30,14 +30,14 @@ class Ui_MainWindow(object):
         self.label.setGeometry(QtCore.QRect(-10, 0, 1071, 661))
         self.label.setMaximumSize(QtCore.QSize(1080, 720))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("Imagenes/Fondo.jpg"))
+        self.label.setPixmap(QtGui.QPixmap("./templates/../img/smart greenhouse (1).jpg"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.pushButton_7 = QtWidgets.QPushButton(self.widget)
         self.pushButton_7.setGeometry(QtCore.QRect(-60, 60, 161, 91))
         self.pushButton_7.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("Imagenes/smart greenhouse (3).jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("./templates/../img/smart greenhouse (3).jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_7.setIcon(icon)
         self.pushButton_7.setIconSize(QtCore.QSize(162, 100))
         self.pushButton_7.setObjectName("pushButton_7")

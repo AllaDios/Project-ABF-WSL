@@ -1,3 +1,12 @@
+import sys
+from PyQt5.QtWidgets import *
+from PyQt5.QtCore import pyqtSlot
+from PyQt5.QtGui import QPixmap
+from PyQt5 import QtCore
+import json  # Importar el módulo para manejar JSON
+
+from interfaces.ui_gestionar import Ui_MainWindow
+
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -5,9 +14,9 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         self.setWindowTitle("Gestión de Plantas")  # Establece el título de la ventana
         self.setWindowFlags(QtCore.Qt.Window | QtCore.Qt.WindowMinimizeButtonHint)  # Deshabilita el botón de maximizar
-        
+
         # Cargar los datos desde el archivo JSON
-        self.plantas_data = self.cargar_datos_json('plantas.json')
+        self.plantas_data = self.cargar_datos_json('Datos/plantas.json')
         
         # Acceder al QScrollArea y su layout
         self.scroll_area = self.ui.scrollArea  # Asegúrate de que el nombre de tu QScrollArea sea 'scrollArea' en el archivo .ui
@@ -29,6 +38,8 @@ class MainWindow(QMainWindow):
 
         # Conectar el botón para ordenar los botones
         self.ui.pushButton_8.clicked.connect(self.ordenar_botones)
+        
+    
 
     def cargar_datos_json(self, archivo):
         """
@@ -65,6 +76,10 @@ class MainWindow(QMainWindow):
                     font: italic 30px;                  /* Letra en cursiva y tamaño 30px */
                     padding: 0px;                       /* Espaciado interno para ajustar el tamaño */
                 }
+                QPushButton:pressed {
+                background-color: rgba(135, 180, 130, 120); /* Color al presionar (más translúcido) */
+                }
+
             """)
 
             layout.addWidget(boton)  # Añadir el botón al layout del QScrollArea
@@ -72,9 +87,11 @@ class MainWindow(QMainWindow):
         return botones
 
     def ordenar_botones(self):
+        
         """
         Ordenar los botones dependiendo de la opción seleccionada en el ComboBox.
         """
+        
         seleccion = self.ui.comboBox.currentText()
 
         # Guardar los datos esenciales (nombre y humedad) de los botones antes de eliminarlos
@@ -111,7 +128,10 @@ class MainWindow(QMainWindow):
                     font: italic 30px;                  /* Letra en cursiva y tamaño 30px */
                     padding: 0px;                       /* Espaciado interno para ajustar el tamaño */
                 }
-            """)
+                QPushButton:pressed {
+                background-color: rgba(135, 180, 130, 120); /* Color al presionar (más translúcido) */
+                }
+                """)
 
             # Agregar el nuevo botón al layout
             layout.addWidget(nuevo_boton)
