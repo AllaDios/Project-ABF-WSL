@@ -30,11 +30,11 @@ class MenuWindow(QMainWindow, Ui_MainWindow):
         self.close()  # Cerramos la ventana de menú
 
     def abrir_ventana_distribucion(self):
-        from .distribucion import DistrubutionWindow  # Importamos la ventana de gestión#+
+        from .distribucion import DistributionWindow  # Importamos la ventana de gestión#+
         # Capturamos la posición de la ventana actual antes de cerrarla
         pos_x = self.geometry().x()
         pos_y = self.geometry().y()
-        self.ventana_distribucion = DistrubutionWindow()
+        self.ventana_distribucion = DistributionWindow()
         # Establecemos la misma posición para la nueva ventana
         self.ventana_distribucion.move(pos_x, pos_y)
         self.ventana_distribucion.show()
