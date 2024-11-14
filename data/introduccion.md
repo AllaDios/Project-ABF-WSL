@@ -1,0 +1,3 @@
+# Introducción
+
+El proyecto "Vivero Automatizado con Monitoreo y Control Inteligente" es un sistema diseñado para automatizar el monitoreo y control de un invernadero. Utiliza sensores para medir la temperatura, humedad y luz, y controla automáticamente el riego basado en estos datos. La interfaz gráfica está desarrollada en PyQt, y la comunicación con los sensores se realiza a través de un Arduino.
