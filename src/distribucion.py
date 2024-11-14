@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QMainWindow, QPushButton, QApplication, QSizePolicy
+from PyQt5.QtWidgets import *
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QFontMetrics
 from PyQt5 import QtCore
@@ -14,30 +14,12 @@ class DistributionWindow(QMainWindow):
         self.ui.setupUi(self)
         self.setWindowTitle("Distribución de Plantas")
         self.setWindowFlags(QtCore.Qt.Window | QtCore.Qt.WindowMinimizeButtonHint)
-        
-        # Leer filas y columnas del archivo grilla.json
-        self.rows, self.columns = self.leer_json_grilla('Datos/grilla.json')
 
         # Leer nombres de plantas del archivo plantas.json
         self.plantas = self.leer_json_plantas('Datos/plantas.json')
 
         # Crear botones dinámicamente en la grilla
         self.crear_botones()
-
-    def leer_json_grilla(self, archivo_json):
-        """Lee un archivo JSON y devuelve las filas y columnas."""
-        try:
-            with open(archivo_json, 'r') as file:
-                data = json.load(file)
-            rows = data.get("rows", 1)
-            columns = data.get("columns", 1)
-            return rows, columns
-        except FileNotFoundError:
-            print(f"Error: No se encontró el archivo {archivo_json}")
-            return 1, 1
-        except json.JSONDecodeError:
-            print(f"Error: No se pudo parsear el archivo {archivo_json}")
-            return 1, 1
 
     def leer_json_plantas(self, archivo_json):
         """Lee un archivo JSON y devuelve una lista de nombres de plantas."""
@@ -54,24 +36,21 @@ class DistributionWindow(QMainWindow):
             return []
 
     def crear_botones(self):
-        """Crea botones dinámicamente según las filas, columnas y plantas disponibles."""
+        """Crea botones dinámicamente según las plantas disponibles."""
         grid_layout = self.ui.gridLayout_2
         
-        # Contador para llevar la cuenta de las plantas
+        max_columnas = 5  # Máximo 5 botones por fila
         planta_index = 0
-
-        for fila in range(self.rows):
-            for columna in range(self.columns):
-                boton = QPushButton()
-                
-                # Si hay una planta disponible, usamos su nombre
+        
+        for fila in range((len(self.plantas) + max_columnas - 1) // max_columnas):  # Calculamos cuántas filas necesitamos
+            for columna in range(max_columnas):
                 if planta_index < len(self.plantas):
+                    boton = QPushButton()
                     boton.setText(self.plantas[planta_index])
                     planta_index += 1
                 else:
-                    # Si no hay más plantas, dejar el botón vacío y deshabilitarlo
-                    boton.setText("")
-                    boton.setEnabled(False)
+                    # Si no hay más plantas, salir del bucle
+                    break
 
                 # Ajustar el botón para ser cuadrado y redimensionable
                 boton.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
@@ -121,8 +100,8 @@ class DistributionWindow(QMainWindow):
         self.ventana_Menu.show()
         self.close()
 
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    ventana = DistributionWindow()
-    ventana.show()
-    sys.exit(app.exec_())
+#if __name__ == '__main__':
+#    app = QApplication(sys.argv)
+#    ventana = DistributionWindow()
+#    ventana.show()
+#    sys.exit(app.exec_())
