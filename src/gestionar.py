@@ -47,6 +47,76 @@ class GestionWindow(QMainWindow):
         self.ui.comboBox_3.setEditable(True)
         self.ui.comboBox_3.setInsertPolicy(QComboBox.InsertAlphabetically)
 
+        self.ui.pushButton.clicked.connect(self.agregar_en_json)
+        self.ui.pushButton_2.clicked.connect(self.eliminar_en_json)
+
+    def agregar_en_json(self):
+        """Guarda el contenido del comboBox_2 en un archivo JSON."""
+        texto = self.ui.comboBox_2.currentText()
+
+        # Verificar que no esté vacío
+        if not texto:
+            QMessageBox.warning(self, "Advertencia", "El campo del comboBox está vacío. Por favor, ingresa un valor.")
+            return
+
+        # Cargar datos existentes de 'plantas.json'
+        try:
+            with open('Datos/plantas.json', 'r') as file:
+                plantas = json.load(file)
+        except (FileNotFoundError, json.JSONDecodeError):
+            plantas = []
+
+        # Añadir el nuevo dato al JSON
+        nueva_planta = {
+            "planta": texto,
+            "humedad": 0  # Puedes cambiar este valor según tus necesidades
+        }
+        plantas.append(nueva_planta)
+
+        # Guardar los datos actualizados en 'plantas.json'
+        with open('Datos/plantas.json', 'w') as file:
+            json.dump(plantas, file, indent=4)
+
+        # Mostrar mensaje de confirmación
+        QMessageBox.information(self, "Éxito", f"'{texto}' ha sido agregado a plantas.json")
+
+    def eliminar_en_json(self):
+        """Elimina el texto seleccionado en el comboBox_3 de plantas.json."""
+        texto_a_eliminar = self.ui.comboBox_3.currentText()
+
+        # Verificar que se haya seleccionado un texto
+        if not texto_a_eliminar:
+            QMessageBox.warning(self, "Advertencia", "Por favor, selecciona una planta para eliminar.")
+            return
+
+        # Cargar los datos desde plantas.json
+        try:
+            with open('Datos/plantas.json', 'r') as file:
+                plantas = json.load(file)
+        except (FileNotFoundError, json.JSONDecodeError):
+            QMessageBox.warning(self, "Error", "No se pudo leer el archivo plantas.json.")
+            return
+
+        # Buscar si la planta está en el JSON y eliminarla
+        planta_encontrada = False
+        for planta in plantas:
+            if planta['planta'] == texto_a_eliminar:
+                plantas.remove(planta)  # Eliminar la planta del JSON
+                planta_encontrada = True
+                break
+
+        if not planta_encontrada:
+            QMessageBox.warning(self, "No encontrado", f"La planta '{texto_a_eliminar}' no se encuentra en el archivo.")
+            return
+
+        # Guardar los datos actualizados en plantas.json
+        try:
+            with open('Datos/plantas.json', 'w') as file:
+                json.dump(plantas, file, indent=4)
+            QMessageBox.information(self, "Éxito", f"'{texto_a_eliminar}' ha sido eliminado de plantas.json.")
+        except IOError:
+            QMessageBox.warning(self, "Error", "No se pudo guardar el archivo plantas.json.")
+        
     def abrir_ventana_menu(self):
         from .menu import MenuWindow  # Importamos la ventana de gestión#+
         # Capturamos la posición de la ventana actual antes de cerrarla

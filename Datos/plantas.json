@@ -1,34 +1,38 @@
 [
     {
-      "planta": "Cactus",
-      "humedad": 25
+        "planta": "Cactus",
+        "humedad": 25
     },
     {
-      "planta": "Sombra de la noche",
-      "humedad": 60
+        "planta": "Sombra de la noche",
+        "humedad": 60
     },
     {
-      "planta": "Amapola",
-      "humedad": 60
+        "planta": "Amapola",
+        "humedad": 60
     },
     {
-      "planta": "Rosa",
-      "humedad": 60
+        "planta": "Rosa",
+        "humedad": 60
     },
     {
-      "planta": "Jazmín",
-      "humedad": 60
+        "planta": "Jazm\u00cdn",
+        "humedad": 60
     },
     {
-      "planta": "Margarita",
-      "humedad": 60
+        "planta": "Margarita",
+        "humedad": 60
     },
     {
-      "planta": "Girasol",
-      "humedad": 60
+        "planta": "Girasol",
+        "humedad": 60
     },
     {
-      "planta": "Lavanda",
-      "humedad": 60
+        "planta": "Lavanda",
+        "humedad": 60
+    },
+    {
+        "planta": "ROSITA",
+        "humedad": 0
     }
 ]
