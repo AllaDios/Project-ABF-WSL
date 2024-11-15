@@ -38,7 +38,15 @@ class GestionWindow(QMainWindow):
 
         # Conectar el botón para ordenar los botones
         self.ui.pushButton_8.clicked.connect(self.ordenar_botones)
+
+        self.ui.comboBox_2.addItems(["Opción 1", "Opción 2", "Opción 3"])
+        self.ui.comboBox_2.setEditable(True)
+        self.ui.comboBox_2.setInsertPolicy(QComboBox.InsertAlphabetically)
         
+        self.ui.comboBox_3.addItems(["Opción 1", "Opción 2", "Opción 3"])
+        self.ui.comboBox_3.setEditable(True)
+        self.ui.comboBox_3.setInsertPolicy(QComboBox.InsertAlphabetically)
+
     def abrir_ventana_menu(self):
         from .menu import MenuWindow  # Importamos la ventana de gestión#+
         # Capturamos la posición de la ventana actual antes de cerrarla
@@ -49,7 +57,7 @@ class GestionWindow(QMainWindow):
         self.ventana_menu.move(pos_x, pos_y)
         self.ventana_menu.show()
         self.close()  # Cerramos la ventana de menú
-
+    
     def cargar_datos_json(self, archivo):
         """
         Cargar los datos desde un archivo JSON.
