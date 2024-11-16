@@ -12,10 +12,6 @@
         "humedad": 60
     },
     {
-        "planta": "Rosa",
-        "humedad": 60
-    },
-    {
         "planta": "Jazm\u00cdn",
         "humedad": 60
     },
@@ -32,7 +28,7 @@
         "humedad": 60
     },
     {
-        "planta": "ROSITA",
+        "planta": "Rosa",
         "humedad": 0
     }
 ]

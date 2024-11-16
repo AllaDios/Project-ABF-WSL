@@ -39,11 +39,9 @@ class GestionWindow(QMainWindow):
         # Conectar el botón para ordenar los botones
         self.ui.pushButton_8.clicked.connect(self.ordenar_botones)
 
-        self.ui.comboBox_2.addItems(["Opción 1", "Opción 2", "Opción 3"])
         self.ui.comboBox_2.setEditable(True)
         self.ui.comboBox_2.setInsertPolicy(QComboBox.InsertAlphabetically)
-        
-        self.ui.comboBox_3.addItems(["Opción 1", "Opción 2", "Opción 3"])
+
         self.ui.comboBox_3.setEditable(True)
         self.ui.comboBox_3.setInsertPolicy(QComboBox.InsertAlphabetically)
 

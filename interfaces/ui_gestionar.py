@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file './templates/gestionar.ui'
+# Form implementation generated from reading ui file 'templates/gestionar.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.11
 #
@@ -30,19 +30,22 @@ class Ui_MainWindow(object):
         self.label.setGeometry(QtCore.QRect(-10, 0, 1071, 661))
         self.label.setMaximumSize(QtCore.QSize(1080, 720))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("./templates/../img/smart greenhouse (6).jpg"))
+        self.label.setPixmap(QtGui.QPixmap("templates/../img/smart greenhouse (6).jpg"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.pushButton_7 = QtWidgets.QPushButton(self.widget)
         self.pushButton_7.setGeometry(QtCore.QRect(-60, 60, 161, 91))
         self.pushButton_7.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("./templates/../img/smart greenhouse (3).jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("templates/../img/smart greenhouse (3).jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.pushButton_7.setIcon(icon)
         self.pushButton_7.setIconSize(QtCore.QSize(162, 100))
         self.pushButton_7.setObjectName("pushButton_7")
         self.comboBox = QtWidgets.QComboBox(self.widget)
         self.comboBox.setGeometry(QtCore.QRect(300, 50, 141, 31))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.comboBox.setFont(font)
         self.comboBox.setStyleSheet("background-color: #9ddba6;          /* Color de fondo verde */")
         self.comboBox.setObjectName("comboBox")
         self.label_2 = QtWidgets.QLabel(self.widget)
@@ -81,7 +84,15 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.comboBox_2 = QtWidgets.QComboBox(self.widget)
         self.comboBox_2.setGeometry(QtCore.QRect(740, 270, 200, 40))
-        self.comboBox_2.setStyleSheet("background-color: #9ddba6;          /* Color de fondo verde */")
+        font = QtGui.QFont()
+        font.setFamily("Sans Serif")
+        font.setPointSize(18)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.comboBox_2.setFont(font)
+        self.comboBox_2.setStyleSheet("background-color: #9ddba6;          /* Color de fondo verde */\n"
+"font: 18pt \"Sans Serif\";")
         self.comboBox_2.setObjectName("comboBox_2")
         self.label_3 = QtWidgets.QLabel(self.widget)
         self.label_3.setGeometry(QtCore.QRect(760, 230, 165, 30))
@@ -103,7 +114,15 @@ class Ui_MainWindow(object):
         self.label_4.setObjectName("label_4")
         self.comboBox_3 = QtWidgets.QComboBox(self.widget)
         self.comboBox_3.setGeometry(QtCore.QRect(740, 450, 200, 40))
-        self.comboBox_3.setStyleSheet("background-color: #9ddba6;          /* Color de fondo verde */")
+        font = QtGui.QFont()
+        font.setFamily("Sans Serif")
+        font.setPointSize(18)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.comboBox_3.setFont(font)
+        self.comboBox_3.setStyleSheet("background-color: #9ddba6;          /* Color de fondo verde */\n"
+"font: 18pt \"Sans Serif\";")
         self.comboBox_3.setObjectName("comboBox_3")
         self.pushButton = QtWidgets.QPushButton(self.widget)
         self.pushButton.setGeometry(QtCore.QRect(800, 330, 80, 23))

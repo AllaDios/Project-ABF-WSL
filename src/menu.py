@@ -18,6 +18,9 @@ class MenuWindow(QMainWindow, Ui_MainWindow):
         # Conectamos el botón con la función que abre la ventana de distribucion
         self.pushButton_2.clicked.connect(self.abrir_ventana_distribucion)
 
+        # Conectamos el botón con la función que abre la ventana de configuracion
+        self.pushButton.clicked.connect(self.abrir_ventana_configuracion)
+
     def abrir_ventana_gestion(self):
         from .gestionar import GestionWindow  # Importamos la ventana de gestión#+
         # Capturamos la posición de la ventana actual antes de cerrarla
@@ -38,6 +41,17 @@ class MenuWindow(QMainWindow, Ui_MainWindow):
         # Establecemos la misma posición para la nueva ventana
         self.ventana_distribucion.move(pos_x, pos_y)
         self.ventana_distribucion.show()
+        self.close()  # Cerramos la ventana de menú
+
+    def abrir_ventana_configuracion(self):
+        from .configuracion import ConfigurationWindow  # Importamos la ventana de gestión#+
+        # Capturamos la posición de la ventana actual antes de cerrarla
+        pos_x = self.geometry().x()
+        pos_y = self.geometry().y()
+        self.ventana_configuracion = ConfigurationWindow()
+        # Establecemos la misma posición para la nueva ventana
+        self.ventana_configuracion.move(pos_x, pos_y)
+        self.ventana_configuracion.show()
         self.close()  # Cerramos la ventana de menú
 
 if __name__ == "__main__":
