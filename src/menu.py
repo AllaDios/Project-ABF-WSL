@@ -2,8 +2,11 @@ import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5.QtCore import pyqtSlot
 from PyQt5 import QtCore
+import json
 
 from interfaces.ui_menu import Ui_MainWindow
+from classes.classPlantas import Planta
+from classes.classVivero import Vivero
 
 class MenuWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
@@ -21,12 +24,40 @@ class MenuWindow(QMainWindow, Ui_MainWindow):
         # Conectamos el botón con la función que abre la ventana de configuracion
         self.pushButton.clicked.connect(self.abrir_ventana_configuracion)
 
+        # Cargar los datos desde el archivo JSON
+        self.plantas_data = self.cargar_datos_json('Datos/plantas.json')
+        
+        # recorrer plantas data y por cada elementos crear una planta
+        plantas = []
+        for i in self.plantas_data : 
+            planta = Planta(i['nombre'], i['humedad'])
+            plantas.append(planta)
+        
+        #Creo el vivero
+        self.vivero = Vivero('Mi Vivero', plantas)
+        print (self.vivero.nombre)
+
+        
+    def cargar_datos_json(self, archivo):
+        """
+        Cargar los datos desde un archivo JSON.
+        """
+        try:
+            with open(archivo, 'r') as f:
+                return json.load(f)
+        except FileNotFoundError:
+            print(f"Error: El archivo {archivo} no se encuentra.")
+            return []
+        except json.JSONDecodeError:
+            print(f"Error: El archivo {archivo} no tiene formato JSON válido.")
+            return []
+
     def abrir_ventana_gestion(self):
         from .gestionar import GestionWindow  # Importamos la ventana de gestión#+
         # Capturamos la posición de la ventana actual antes de cerrarla
         pos_x = self.geometry().x()
         pos_y = self.geometry().y()
-        self.ventana_gestion = GestionWindow()
+        self.ventana_gestion = GestionWindow(self.vivero)
         # Establecemos la misma posición para la nueva ventana
         self.ventana_gestion.move(pos_x, pos_y)
         self.ventana_gestion.show()
@@ -37,7 +68,7 @@ class MenuWindow(QMainWindow, Ui_MainWindow):
         # Capturamos la posición de la ventana actual antes de cerrarla
         pos_x = self.geometry().x()
         pos_y = self.geometry().y()
-        self.ventana_distribucion = DistributionWindow()
+        self.ventana_distribucion = DistributionWindow(self.vivero)
         # Establecemos la misma posición para la nueva ventana
         self.ventana_distribucion.move(pos_x, pos_y)
         self.ventana_distribucion.show()
