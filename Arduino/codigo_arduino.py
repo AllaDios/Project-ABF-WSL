@@ -2,14 +2,12 @@ import serial
 import time
 
 # Configuración de la conexión serial
-arduino_port = "COM6"  # Cambia esto al puerto donde está conectado tu Arduino
+arduino_port = "COM4" 
 baud_rate = 9600
 ser = serial.Serial(arduino_port, baud_rate, timeout=1)
 
 def read_sensors():
-    """
-    Lee los datos enviados por el Arduino y devuelve un diccionario con los valores.
-    """
+
     try:
         line = ser.readline().decode("utf-8").strip()
         if line:
