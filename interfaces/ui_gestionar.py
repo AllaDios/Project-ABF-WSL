@@ -151,7 +151,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.pushButton_8.clicked.connect(MainWindow.ordenar_botones) # type: ignore
+        #self.pushButton_8.clicked.connect(MainWindow.ordenar_botones) # type: ignore
         self.pushButton_7.clicked.connect(MainWindow.abrir_ventana_menu) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
