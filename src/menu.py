@@ -18,7 +18,7 @@ class MenuWindow(QMainWindow, Ui_MainWindow):
         # Conectamos el botón con la función que abre la ventana de gestión
         self.pushButton_3.clicked.connect(self.abrir_ventana_gestion)
 
-        # Conectamos el botón con la función que abre la ventana de distribucion
+        # conectamos el botón con la función que abre la ventana de distribucion
         self.pushButton_2.clicked.connect(self.abrir_ventana_distribucion)
 
         # Conectamos el botón con la función que abre la ventana de configuracion
@@ -37,7 +37,6 @@ class MenuWindow(QMainWindow, Ui_MainWindow):
         self.vivero = Vivero('Mi Vivero', plantas)
         print (self.vivero.nombre)
 
-        
     def cargar_datos_json(self, archivo):
         """
         Cargar los datos desde un archivo JSON.

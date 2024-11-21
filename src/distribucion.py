@@ -3,7 +3,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QFontMetrics
 from PyQt5 import QtCore
-from classes.classPlantas import Planta  # Asegúrate de importar la clase Planta
+from classes.classPlantas import Planta  # importamos la clase Planta
 from interfaces.ui_distribucion import Ui_MainWindow
 
 class DistributionWindow(QMainWindow):
@@ -25,8 +25,8 @@ class DistributionWindow(QMainWindow):
         Los botones serán cuadrados y mostrarán el nombre de cada planta.
         Se agregarán 5 botones por fila.
         """
-        # Obtener el layout de la interfaz (gridLayout_2 en este caso)
-        grid_layout = self.ui.gridLayout_2  # Usar el gridLayout_2
+        # distribucion de botones
+        grid_layout = self.ui.gridLayout_2
 
         # Limpiar el layout antes de agregar los botones
         for i in range(grid_layout.count()):
@@ -34,7 +34,7 @@ class DistributionWindow(QMainWindow):
             if widget:
                 widget.deleteLater()
 
-        # Obtener las plantas del vivero
+        # obtenemos las plantas del vivero con el metodo de get_plantas
         plantas = self.vivero.get_plantas()
 
         # Definir cuántos botones caben por fila
@@ -56,6 +56,8 @@ class DistributionWindow(QMainWindow):
                     background-color: rgba(135, 180, 130, 120);
                 }
             """)
+            # Conectar el botón a la función que abre InfoWindow
+            boton.clicked.connect(lambda checked, p=planta: self.abrir_ventana_info(p))
 
             # Añadir el botón al layout
             fila = i // botones_por_fila  # Calcular la fila (cada 5 botones pasa a una nueva fila)
@@ -76,3 +78,13 @@ class DistributionWindow(QMainWindow):
         self.ventana_Menu.move(pos_x, pos_y)
         self.ventana_Menu.show()
         self.close()
+
+    def abrir_ventana_info(self, planta, checked=None):
+        from .info import InfoWindow  # Importamos la ventana InfoWindow
+        pos_x = self.geometry().x()
+        pos_y = self.geometry().y()
+        # Crear una instancia de InfoWindow pasando la planta seleccionada
+        self.ventana_info = InfoWindow(planta, self.vivero)
+        self.ventana_info.move(pos_x, pos_y)
+        self.ventana_info.show()
+        self.close()  # Cerramos la ventana de menú

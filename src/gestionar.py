@@ -26,10 +26,10 @@ class GestionWindow(QMainWindow):
         # Botón de Actualizar
         self.ui.pushButton_8.clicked.connect(self.ordenar_botones)
 
-        # Botón para agregar plantas desde comboBox_2
+        # Botón para agregar las plantas
         self.ui.pushButton.clicked.connect(self.crear_planta_desde_comboBox2)
 
-        # Botón para agregar plantas desde comboBox_3
+        # Botón para eliminar las plantas
         self.ui.pushButton_2.clicked.connect(self.eliminar_planta_desde_comboBox3)
         
 
@@ -47,7 +47,7 @@ class GestionWindow(QMainWindow):
         """
         Crear botones dentro del QScrollArea con los nombres de las plantas del vivero.
         """
-        # Acceder al QScrollArea y al layout
+        # configuramos scroll area
         scroll_area = self.ui.scrollArea
         content_widget = scroll_area.widget()
 
@@ -63,9 +63,9 @@ class GestionWindow(QMainWindow):
             if child.widget():
                 child.widget().deleteLater()
 
-        # Crear y agregar botones al layout
+        # agregar botones al layout
         for planta in self.vivero.get_plantas():
-            boton = QPushButton(planta.nombre)  # Asume que planta tiene un atributo `nombre`
+            boton = QPushButton(planta.nombre)  
             boton.setFixedHeight(50)  # Ajustar el tamaño del botón
             boton.setStyleSheet("""  /* Estilo de los botones */
                 QPushButton {
@@ -84,7 +84,7 @@ class GestionWindow(QMainWindow):
         """
         Ordenar los botones según la humedad seleccionada en el comboBox.
         """
-        # Obtener la opción seleccionada en el comboBox
+        # Saber que opcion tiene el combo box
         opcion = self.ui.comboBox.currentText()
 
         # Ordenar las plantas por humedad de menor a mayor o de mayor a menor
@@ -143,20 +143,20 @@ class GestionWindow(QMainWindow):
         """
         texto_ingresado = self.ui.comboBox_2.currentText().strip()  # Obtener y limpiar el texto del comboBox_2
 
-        if texto_ingresado:  # Validar que no esté vacío
-            # Crear un objeto Planta con el texto como nombre y humedad 0
+        if texto_ingresado: 
+            # se crea un objeto Planta con el texto como nombre y humedad 0
             nueva_planta = Planta(nombre=texto_ingresado, humedad=0)
 
-            # Agregar la planta al vivero
+            # se agrega la planta al vivero
             self.vivero.agregar_planta(nueva_planta)
 
-            # Actualizar la lista de botones para reflejar el cambio
+            # creamos el boton nuevo
             self.crear_botones()
 
-            # Guardar los cambios en el archivo JSON
+            # guardar los cambios en el archivo JSON
             self.guardar_en_json()
 
-            # Limpia el texto en comboBox_2 después de agregar la planta
+            # borra el texto en comboBox_2 después de agregar la planta
             self.ui.comboBox_2.setCurrentText("")
             QMessageBox.information(self, "Éxito", "La planta se agregó correctamente.")
 

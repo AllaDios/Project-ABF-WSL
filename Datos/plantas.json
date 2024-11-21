@@ -20,15 +20,15 @@
         "humedad": 0
     },
     {
-        "nombre": "Rosa",
-        "humedad": 0
-    },
-    {
         "nombre": "Lanzaguisantes",
         "humedad": 0
     },
     {
         "nombre": "Palo borracho",
+        "humedad": 0
+    },
+    {
+        "nombre": "Rosa",
         "humedad": 0
     }
 ]
