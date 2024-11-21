@@ -1,5 +1,10 @@
+certifi==2024.8.30
+charset-normalizer==3.4.0
+idna==3.10
 PyQt5==5.15.11
 PyQt5-Qt5==5.15.15
 PyQt5_sip==12.15.0
 PySide2==5.13.2
+requests==2.32.3
 shiboken2==5.13.2
+urllib3==2.2.3
