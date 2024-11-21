@@ -7,6 +7,8 @@ import json
 from interfaces.ui_menu import Ui_MainWindow
 from classes.classPlantas import Planta
 from classes.classVivero import Vivero
+from .humedad import obtener_humedad
+from .temperatura import obtener_temperatura
 
 class MenuWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
@@ -23,6 +25,14 @@ class MenuWindow(QMainWindow, Ui_MainWindow):
 
         # Conectamos el botón con la función que abre la ventana de configuracion
         self.pushButton.clicked.connect(self.abrir_ventana_configuracion)
+
+        # Humedad
+        humedad = obtener_humedad()
+        self.label_4.setText(humedad)
+
+        # Temperatura
+        temperatura = obtener_temperatura()
+        self.label_5.setText(temperatura)  
 
         # Cargar los datos desde el archivo JSON
         self.plantas_data = self.cargar_datos_json('Datos/plantas.json')

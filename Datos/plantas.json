@@ -4,10 +4,6 @@
         "humedad": 25
     },
     {
-        "nombre": "Amapola",
-        "humedad": 0
-    },
-    {
         "nombre": "Margarita",
         "humedad": 0
     },
@@ -29,6 +25,10 @@
     },
     {
         "nombre": "Rosa",
+        "humedad": 0
+    },
+    {
+        "nombre": "Amapola",
         "humedad": 0
     }
 ]
