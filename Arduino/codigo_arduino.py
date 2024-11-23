@@ -2,7 +2,7 @@ import serial
 import time
 
 # Configuración de la conexión serial
-arduino_port = "COM4" 
+arduino_port = "COM6"  # O usa el puerto adecuado
 baud_rate = 9600
 ser = serial.Serial(arduino_port, baud_rate, timeout=1)
 
