@@ -80,7 +80,7 @@ class DistributionWindow(QMainWindow):
         self.close()
 
     def abrir_ventana_info(self, planta, checked=None):
-        from .info import InfoWindow  # Importamos la ventana InfoWindow
+        from .info import InfoWindow
         pos_x = self.geometry().x()
         pos_y = self.geometry().y()
         # Crear una instancia de InfoWindow pasando la planta seleccionada

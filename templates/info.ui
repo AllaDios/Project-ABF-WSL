@@ -48,7 +48,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap>../img/smart greenhouse (1).png</pixmap>
+        <pixmap>../img/smart greenhouse (10).jpg</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
@@ -82,18 +82,18 @@
         <rect>
          <x>480</x>
          <y>230</y>
-         <width>111</width>
-         <height>41</height>
+         <width>121</width>
+         <height>40</height>
         </rect>
        </property>
        <property name="font">
         <font>
-         <pointsize>35</pointsize>
+         <pointsize>21</pointsize>
          <italic>true</italic>
         </font>
        </property>
        <property name="text">
-        <string>25</string>
+        <string/>
        </property>
       </widget>
       <widget class="QLabel" name="label_3">
@@ -122,6 +122,44 @@
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_4">
+       <property name="geometry">
+        <rect>
+         <x>480</x>
+         <y>350</y>
+         <width>130</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>21</pointsize>
+         <italic>true</italic>
+        </font>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_5">
+       <property name="geometry">
+        <rect>
+         <x>480</x>
+         <y>465</y>
+         <width>121</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>21</pointsize>
+         <italic>true</italic>
+        </font>
+       </property>
+       <property name="text">
+        <string/>
        </property>
       </widget>
      </widget>

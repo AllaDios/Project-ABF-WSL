@@ -1,46 +1,54 @@
-const int relayPin = 3;   // Relé 
-const int sensorHumPin = A1;  // Higrómetro
-const int waterLevelPin = A0;  // Sensor de nivel de agua
+const int relayPin = 3;       // Pin para el relé
+const int sensorHumPin = A1;  // Pin para el sensor de humedad (higrómetro)
+const int waterLevelPin = A0; // Pin para el sensor de nivel de agua
+const int sensorLuzPin = A2;  // Pin para el sensor de luz (LDR)
 
-int sensorHumValue = 0;  //Variable del higrómetro
-int waterLevelValue = 0; //Nivel de agua
-int thresholdHumidity = 600;  // Umbral de humedad
-int thresholdWaterLevel = 300;  // Umbral de nivel de agua
+int sensorHumValue = 0;       // Variable para el valor del higrómetro
+int waterLevelValue = 0;      // Variable para el valor del nivel de agua
+int sensorLuzValue = 0;       // Variable para el valor del sensor de luz
+int thresholdHumidity = 600;  // Umbral para la humedad del suelo
+int thresholdWaterLevel = 300; // Umbral para el nivel de agua
 
 void setup() {
   pinMode(relayPin, OUTPUT); 
-  digitalWrite(relayPin, LOW); 
+  digitalWrite(relayPin, LOW); // Apagar la bomba por defecto
 
-  Serial.begin(9600); 
+  Serial.begin(9600);  // Iniciar la comunicación serial
 }
 
 void loop() {
-  // Lee el valor del higrómetro
+  // Leer el valor del sensor de humedad
   sensorHumValue = analogRead(sensorHumPin);
-  // Lee el valor del sensor de nivel de agua
+
+  // Leer el valor del sensor de nivel de agua
   waterLevelValue = analogRead(waterLevelPin);
 
-  // Se imprime los valores de humedad y nivel de agua
-  Serial.print("Valor del higrómetro: ");
-  Serial.print(sensorHumValue);
-  Serial.print("\tValor del nivel de agua: ");
-  Serial.println(waterLevelValue);
+  // Leer el valor del sensor de luz (LDR)
+  sensorLuzValue = analogRead(sensorLuzPin);
 
-  // Se verifica si el nivel de agua es suficiente
+  // Enviar los datos en el formato esperado: clave:valor
+  Serial.print("SOIL:");
+  Serial.print(sensorHumValue);  // Humedad del suelo
+  Serial.print(",LIGHT:");
+  Serial.print(sensorLuzValue);  // Valor de luz
+  Serial.print(",WATER:");
+  Serial.print(waterLevelValue);  // Nivel de agua
+
+  // Control de la bomba basado en el nivel de agua y humedad
   if (waterLevelValue > thresholdWaterLevel) {
-    // Si la humedad es baja y el nivel de agua es suficiente, enciende la bomba
     if (sensorHumValue > thresholdHumidity) {
       digitalWrite(relayPin, HIGH);  // Enciende la bomba
-      Serial.println("Bomba encendida (suelo seco y suficiente agua)");
+      Serial.print(",STATUS:ON");  // Bomba encendida
     } else {
       digitalWrite(relayPin, LOW);  // Apaga la bomba si el suelo está húmedo
-      Serial.println("Bomba apagada (suelo húmedo)");
+      Serial.print(",STATUS:OFF");  // Bomba apagada
     }
   } else {
-    // Si el nivel de agua es bajo, apaga la bomba
-    digitalWrite(relayPin, LOW);  
-    Serial.println("Nivel de agua bajo, bomba apagada");
+    digitalWrite(relayPin, LOW);  // Apaga la bomba si el nivel de agua es bajo
+    Serial.print(",STATUS:OFF");  // Bomba apagada
   }
 
-  delay(4000);  // Repetición cada 4 segundos
+  // Enviar los datos con formato 'clave:valor' por cada parámetro
+  Serial.println();  // Nueva línea para terminar la transmisión de datos
+  delay(4000);  // Espera 4 segundos antes de la siguiente lectura
 }

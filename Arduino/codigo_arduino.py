@@ -2,20 +2,27 @@ import serial
 import time
 
 # Configuración de la conexión serial
-arduino_port = "COM6"  # O usa el puerto adecuado
+arduino_port = "/dev/ttyUSB0"  # O usa el puerto adecuado
 baud_rate = 9600
 ser = serial.Serial(arduino_port, baud_rate, timeout=1)
 
 def read_sensors():
-
     try:
         line = ser.readline().decode("utf-8").strip()
         if line:
-            # Parsear los datos enviados por Arduino
+            print(f"Raw data: {line}")  # Mostrar los datos crudos para depuración
             data = {}
-            for pair in line.split(","):
-                key, value = pair.split(":")
-                data[key] = int(value)
+            # Verificar que la línea contiene al menos un par clave-valor
+            if ',' in line:
+                for pair in line.split(","):
+                    # Asegurarse de que la línea tiene exactamente dos valores (clave y valor)
+                    if ':' in pair:
+                        key, value = pair.split(":", 1)
+                        # Solo intentamos convertir a int si el valor es numérico
+                        if value.isdigit():
+                            data[key] = int(value)
+                        else:
+                            data[key] = value  # Si no es numérico, lo dejamos como texto
             return data
     except Exception as e:
         print(f"Error leyendo datos: {e}")
@@ -39,16 +46,17 @@ def main():
         sensor_data = read_sensors()
         if sensor_data:
             print("Datos del invernadero:")
-            print(f"  Humedad del suelo: {sensor_data['SOIL']}")
-            print(f"  Nivel de luz: {sensor_data['LIGHT']}")
-            print(f"  Nivel de agua: {sensor_data['WATER']}")
+            print(f"  Humedad del suelo: {sensor_data.get('SOIL', 'No disponible')}")
+            print(f"  Nivel de luz: {sensor_data.get('LIGHT', 'No disponible')}")
+            print(f"  Nivel de agua: {sensor_data.get('WATER', 'No disponible')}")
+            print(f"  Estado: {sensor_data.get('STATUS', 'No disponible')}")
 
             # Lógica básica para controlar el flujo de agua
-            if sensor_data['SOIL'] < 500:  # Si la humedad del suelo es baja
+            if 'SOIL' in sensor_data and sensor_data['SOIL'] < 500:  # Si la humedad del suelo es baja
                 print("Humedad baja, abriendo flujo de agua...")
                 response = send_command("OPEN_FLOW")
                 print(f"Arduino: {response}")
-            elif sensor_data['SOIL'] > 800:  # Si la humedad es alta
+            elif 'SOIL' in sensor_data and sensor_data['SOIL'] > 800:  # Si la humedad es alta
                 print("Humedad alta, cerrando flujo de agua...")
                 response = send_command("CLOSE_FLOW")
                 print(f"Arduino: {response}")
