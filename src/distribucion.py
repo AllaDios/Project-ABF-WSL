@@ -21,9 +21,9 @@ class DistributionWindow(QMainWindow):
 
     def crear_botones(self):
         """
-        Crear botones en un QGridLayout para cada planta en el vivero.
+        botones para cada planta en el vivero.
         Los botones serán cuadrados y mostrarán el nombre de cada planta.
-        Se agregarán 5 botones por fila.
+        5 botones por fila.
         """
         # distribucion de botones
         grid_layout = self.ui.gridLayout_2
