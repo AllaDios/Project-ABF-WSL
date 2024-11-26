@@ -9,11 +9,14 @@ Este proyecto integra un sistema de monitoreo y control para un invernadero auto
 
 ## Estructura del Repositorio
 - **/arduino**: Código y configuraciones para Arduino.
-- **/docs**: Documentación técnica y de uso del proyecto.
-- **/interfaz**: Archivos relacionados con la interfaz gráfica en PyQt.
-- **/src**: Código fuente en Python.
-- **/data**: Archivos de datos (JSON, CSV).
-- **/tests**: Pruebas de software.
+- **/clases**: Clases.
+- **/data**: Documentación técnica y de uso del proyecto.
+- **/datos**: Archivos de datos (JSON).
+- **/img**: Imágenes
+- **/interfaces**: Archivos relacionados con la interfaz gráfica en PyQt.
+- **/src**: Códigos fuente en Python.
+- **/templates**: Archivos .ui.
+- **.requierments**: Requerimientos.
 
 ## Configuración y Ejecución
 1. Clonar el repositorio.
@@ -22,5 +25,5 @@ Este proyecto integra un sistema de monitoreo y control para un invernadero auto
 
 ## Colaboradores
 - Alladio Lautaro
-- Barragan Tomas
-- Ferrazuolo Benjamin
+- Barragán Tomás
+- Ferrazzuolo Benjamín
