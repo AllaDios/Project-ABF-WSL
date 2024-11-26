@@ -22,7 +22,7 @@ class ConfigurationWindow(QMainWindow):
         # Temporizador para actualizar el estado del tanque
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.actualizar_tanque)
-        self.timer.start(4000)  # Actualiza cada 4 segundos
+        self.timer.start(2000)  # Actualiza cada 4 segundos
 
     def actualizar_tanque(self):
         sensor_data = read_sensors()  # Asegúrate de que esta función lee el valor del sensor de nivel de agua

@@ -25,11 +25,10 @@ class InfoWindow(QMainWindow):
         # Para la actualización en tiempo real
         self.timer = QtCore.QTimer(self)
         self.timer.timeout.connect(self.actualizar_datos)
-        self.timer.start(4000)  # Actualiza cada 4 segundos
+        self.timer.start(2000)  # Actualiza cada 2 segundos
 
     def actualizar_datos(self):
         sensor_data = read_sensors()
-
         if sensor_data:
             soil_humidity = sensor_data['SOIL']
             humidity_percentage = 100 - (soil_humidity / 10)

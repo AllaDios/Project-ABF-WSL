@@ -50,5 +50,5 @@ void loop() {
 
   // Enviar los datos con formato 'clave:valor' por cada parámetro
   Serial.println();  // Nueva línea para terminar la transmisión de datos
-  delay(4000);  // Espera 4 segundos antes de la siguiente lectura
+  delay(2000);  // Espera 4 segundos antes de la siguiente lectura
 }
