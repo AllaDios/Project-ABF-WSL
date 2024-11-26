@@ -24,6 +24,6 @@ Este proyecto integra un sistema de monitoreo y control para un invernadero auto
 3. Ejecutar el archivo principal desde la carpeta `src`.
 
 ## Colaboradores
-- Alladio Lautaro
 - Barragán Tomás
+- Alladio Lautaro
 - Ferrazzuolo Benjamín
