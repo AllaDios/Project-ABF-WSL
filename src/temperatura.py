@@ -10,7 +10,7 @@ def obtener_temperatura():
         respuesta = requests.get(url)
         respuesta.raise_for_status()  # Lanza una excepción si la respuesta tiene un código de error
         datos = respuesta.json()
-        # Extraer la humedad
+        # Extraer la temperatura
         temperatura = datos.get("current", {}).get("temp_c")
         if temperatura is not None:
             return f"{temperatura}° "

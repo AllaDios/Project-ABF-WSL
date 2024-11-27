@@ -42,7 +42,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap>../img/FondoMenu.jpg</pixmap>
+        <pixmap>../img/smart greenhouse (11).jpg</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
@@ -138,7 +138,7 @@
       <widget class="QLabel" name="label_2">
        <property name="geometry">
         <rect>
-         <x>720</x>
+         <x>700</x>
          <y>30</y>
          <width>220</width>
          <height>40</height>
@@ -160,7 +160,7 @@
       <widget class="QLabel" name="label_3">
        <property name="geometry">
         <rect>
-         <x>720</x>
+         <x>700</x>
          <y>70</y>
          <width>260</width>
          <height>40</height>

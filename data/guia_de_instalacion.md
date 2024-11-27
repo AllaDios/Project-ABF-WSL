@@ -11,7 +11,7 @@
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/tu_usuario/Project-ABF.git
+   git clone https://github.com/AllaDios/Project-ABF.git
 
 
 2. Navega al directorio del proyecto:
